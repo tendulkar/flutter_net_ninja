@@ -59,12 +59,48 @@ class _ScrollControllerExampleState extends State<ScrollControllerExample> {
   }
 }
 
+class InfiniteScrollExample extends StatefulWidget {
+  @override
+  _InfiniteScrollState createState() => _InfiniteScrollState();
+}
+
+class _InfiniteScrollState extends State<InfiniteScrollExample> {
+  ScrollController _scrollController = ScrollController();
+  List<int> items = List.generate(50, (index) => index + 1);
+  
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+        setState(() {
+          items.addAll(List.generate(15, (index) => items.length + index + 1));
+        });
+      }
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Infinite Scroll Example")),
+      body: Center(
+        child: ListView.builder(
+          itemCount: items.length,
+          controller: _scrollController,
+          itemBuilder: (context, index) => ListTile(title: Text("Item ${items[index]}")),
+        ),
+      ),
+    );
+  }
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.light(),
-      home: Scaffold(body: ScrollControllerExample()),
+      home: InfiniteScrollExample(),
     );
   }
 }
