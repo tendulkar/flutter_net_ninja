@@ -6,9 +6,11 @@ import './scroll/keep_alive_scroll.dart';
 import './scroll/scroll_controller_example.dart';
 import './sliver_list_grid_example.dart';
 import './scroll/scroll_position_example.dart';
+import './tabs/swipe_tab_change.dart';
+import './tabs/double_tap_tab_example.dart';
 
 void main() {
-  runApp(SliverListGridExampleApp());
+  runApp(const DoubleTapTabExampleApp());
 }
 
 class MyApp extends StatelessWidget {

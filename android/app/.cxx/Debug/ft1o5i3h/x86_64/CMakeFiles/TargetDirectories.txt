@@ -1,0 +1,2 @@
+/Users/yugandhar/code/github.com/tendulkar/flutter_net_ninja/android/app/.cxx/Debug/ft1o5i3h/x86_64/CMakeFiles/edit_cache.dir
+/Users/yugandhar/code/github.com/tendulkar/flutter_net_ninja/android/app/.cxx/Debug/ft1o5i3h/x86_64/CMakeFiles/rebuild_cache.dir
