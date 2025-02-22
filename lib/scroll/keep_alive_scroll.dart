@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
-class MyApp extends StatelessWidget {
+class KeepAliveScrollApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
 class MyKeepAliveWidget extends StatefulWidget {
   final int index;
   MyKeepAliveWidget({required this.index});
@@ -28,8 +27,8 @@ class MyKeepAliveWidget extends StatefulWidget {
   _MyKeepAliveWidgetState createState() => _MyKeepAliveWidgetState();
 }
 
-class _MyKeepAliveWidgetState extends State<MyKeepAliveWidget> 
-  with AutomaticKeepAliveClientMixin {
+class _MyKeepAliveWidgetState extends State<MyKeepAliveWidget>
+    with AutomaticKeepAliveClientMixin {
   int counter = 0;
 
   @override

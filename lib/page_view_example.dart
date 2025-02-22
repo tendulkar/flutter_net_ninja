@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(MyApp());
+// }
 
 class TestContainer extends StatelessWidget {
   final Color color;
@@ -87,7 +87,6 @@ class _PageControllerState extends State<PageControllerExample> {
           ),
         ],
       ),
-
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -113,16 +112,15 @@ class ColumnListView extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             itemCount: 100,
-            itemBuilder:
-                (context, index) => Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.blue,
-                  child: Text(
-                    "Item ${index + 1}",
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
-                ),
+            itemBuilder: (context, index) => Container(
+              width: 100,
+              height: 100,
+              color: Colors.blue,
+              child: Text(
+                "Item ${index + 1}",
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
           ),
         ),
       ],
@@ -130,7 +128,7 @@ class ColumnListView extends StatelessWidget {
   }
 }
 
-class MyApp extends StatelessWidget {
+class PageViewApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

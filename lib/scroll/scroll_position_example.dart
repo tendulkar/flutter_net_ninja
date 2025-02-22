@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
+// void main() {
+//   runApp(ScrollPositionExampleApp());
+// }
 
-class MyApp extends StatelessWidget {
+class ScrollPositionExampleApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -31,10 +31,11 @@ class _ScrollPositionExampleState extends State<ScrollPositionExample> {
   @override
   void initState() {
     super.initState();
-    
+
     _scrollController.addListener(() {
       setState(() {
-        _scrollOffset = _scrollController.position.pixels; // Get current scroll position
+        _scrollOffset =
+            _scrollController.position.pixels; // Get current scroll position
         _minScrollExtent = _scrollController.position.minScrollExtent;
         _maxScrollExtent = _scrollController.position.maxScrollExtent;
         _scrollDirection = _scrollController.position.userScrollDirection.name;
@@ -58,13 +59,16 @@ class _ScrollPositionExampleState extends State<ScrollPositionExample> {
         children: [
           Padding(
             padding: EdgeInsets.all(16),
-            child: Text("Current Scroll Offset: $_scrollOffset, minScrollExtent: $_minScrollExtent, maxScrollExtent: $_maxScrollExtent, scroll direction: $_scrollDirection, at Edge: $_isAtEdge, out of range: $_outOfRange", style: TextStyle(fontSize: 18)),
+            child: Text(
+                "Current Scroll Offset: $_scrollOffset, minScrollExtent: $_minScrollExtent, maxScrollExtent: $_maxScrollExtent, scroll direction: $_scrollDirection, at Edge: $_isAtEdge, out of range: $_outOfRange",
+                style: TextStyle(fontSize: 18)),
           ),
           Expanded(
             child: ListView.builder(
               controller: _scrollController,
               itemCount: 100,
-              itemBuilder: (context, index) => ListTile(title: Text("Item ${index + 1}")),
+              itemBuilder: (context, index) =>
+                  ListTile(title: Text("Item ${index + 1}")),
             ),
           ),
         ],
