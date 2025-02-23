@@ -8,9 +8,10 @@ import './sliver_list_grid_example.dart';
 import './scroll/scroll_position_example.dart';
 import './tabs/swipe_tab_change.dart';
 import './tabs/double_tap_tab_example.dart';
+import './animation/manual_animation_controller_example.dart';
 
 void main() {
-  runApp(const DoubleTapTabExampleApp());
+  runApp(const ManualAnimationControllerExampleApp());
 }
 
 class MyApp extends StatelessWidget {
