@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import './flutter_grid_layout_example.dart';
-import './page_view_example.dart';
-import './sectioned_list_view.dart';
-import './scroll/keep_alive_scroll.dart';
-import './scroll/scroll_controller_example.dart';
-import './sliver_list_grid_example.dart';
-import './scroll/scroll_position_example.dart';
-import './tabs/swipe_tab_change.dart';
-import './tabs/double_tap_tab_example.dart';
-import './animation/manual_animation_controller_example.dart';
+import 'package:flutter_displaymode/flutter_displaymode.dart';
+import 'animation/animations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await FlutterDisplayMode.setLowRefreshRate();
   runApp(const ManualAnimationControllerExampleApp());
 }
 
@@ -20,28 +14,58 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Examples',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Examples'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
       ),
-      body: const SafeArea(
-        child: Center(
-          child: Text('Welcome to Flutter Examples'),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'You have pushed the button this many times:',
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
       ),
     );
   }
