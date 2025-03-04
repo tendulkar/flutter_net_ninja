@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_displaymode/flutter_displaymode.dart';
-import 'animation/animations.dart';
+import 'package:flutter_net_ninja/counter_state.dart';
+import 'animation/implicit_examples/index.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await FlutterDisplayMode.setLowRefreshRate();
-  runApp(const ManualAnimationControllerExampleApp());
+  // await Future.delayed(const Duration(seconds: 10));
+  // Run the simple opacity tween example
+  runApp(const SampleCounterApp());
 }
 
 class MyApp extends StatelessWidget {

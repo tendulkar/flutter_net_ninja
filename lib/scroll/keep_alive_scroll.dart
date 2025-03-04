@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 // }
 
 class KeepAliveScrollApp extends StatelessWidget {
+  const KeepAliveScrollApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('KeepAliveNotification Example')),
+        appBar: AppBar(title: const Text('KeepAliveNotification Example')),
         body: ListView.builder(
           itemCount: 90,
           itemBuilder: (context, index) => MyKeepAliveWidget(index: index),
@@ -21,7 +23,7 @@ class KeepAliveScrollApp extends StatelessWidget {
 
 class MyKeepAliveWidget extends StatefulWidget {
   final int index;
-  MyKeepAliveWidget({required this.index});
+  const MyKeepAliveWidget({super.key, required this.index});
 
   @override
   _MyKeepAliveWidgetState createState() => _MyKeepAliveWidgetState();
@@ -45,7 +47,7 @@ class _MyKeepAliveWidgetState extends State<MyKeepAliveWidget>
             counter++;
           });
         },
-        child: Text('Increment'),
+        child: const Text('Increment'),
       ),
     );
   }

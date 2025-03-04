@@ -12,6 +12,8 @@ class SectionedListView extends StatelessWidget {
     "C": ["Cherry", "Coconut"],
   };
 
+  SectionedListView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -22,10 +24,11 @@ class SectionedListView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Text(
                     section,
-                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                 ),
                 ...items[section]!
@@ -37,11 +40,13 @@ class SectionedListView extends StatelessWidget {
 }
 
 class SectionedListApp extends StatelessWidget {
+  const SectionedListApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Sectioned ListView")),
+        appBar: AppBar(title: const Text("Sectioned ListView")),
         body: Center(
           child: SectionedListView(),
         ),

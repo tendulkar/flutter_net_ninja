@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/scheduler.dart';
 
 class FadeTransitionWidget extends AnimatedWidget {
-  FadeTransitionWidget({required this.child, required this.opacity})
+  const FadeTransitionWidget(
+      {super.key, required this.child, required this.opacity})
       : super(listenable: opacity);
   final Widget child;
   final Animation<double> opacity;
@@ -164,7 +165,7 @@ class SimpleOpacityWidget extends StatelessWidget {
           color: Colors.blueAccent,
           child: Text(
               "Animated Container Height: 300, Width: 300, opacity: $_opacity",
-              style: TextStyle(color: Colors.white, fontSize: 24))),
+              style: const TextStyle(color: Colors.white, fontSize: 24))),
     );
   }
 }

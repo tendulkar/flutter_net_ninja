@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class WhiteTextSizedBox extends StatelessWidget {
   final String text;
-  WhiteTextSizedBox({required this.text});
+  const WhiteTextSizedBox({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class WhiteTextSizedBox extends StatelessWidget {
         child: Center(
             child: Text(
           text,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         )),
       ),
     );
@@ -29,17 +29,17 @@ class SidebarItem extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  SidebarItem({required this.icon, required this.label});
+  const SidebarItem({super.key, required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 10),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(children: [
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         Icon(icon, color: Colors.white, size: 24),
-        SizedBox(width: 10),
-        Text(label, style: TextStyle(color: Colors.white, fontSize: 18)),
+        const SizedBox(width: 10),
+        Text(label, style: const TextStyle(color: Colors.white, fontSize: 18)),
       ]),
     );
   }
@@ -49,29 +49,34 @@ class SummaryCard extends StatelessWidget {
   final String title;
   final String value;
   final IconData icon;
-  SummaryCard({required this.title, required this.value, required this.icon});
+  const SummaryCard(
+      {super.key,
+      required this.title,
+      required this.value,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
+        boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 5)],
       ),
       child: Row(children: [
         CircleAvatar(
           backgroundColor: Colors.blueGrey[900],
           child: Icon(icon, color: Colors.white),
         ),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(title,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-            SizedBox(height: 5),
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 5),
             Text(value,
                 style: TextStyle(
                     fontSize: 18,
@@ -85,6 +90,8 @@ class SummaryCard extends StatelessWidget {
 }
 
 class DatatableWidget extends StatelessWidget {
+  const DatatableWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -119,6 +126,8 @@ class DatatableWidget extends StatelessWidget {
 }
 
 class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,13 +137,13 @@ class DashboardScreen extends StatelessWidget {
         child: Container(
           color: Colors.blueGrey[900],
           child: Column(children: [
-            SizedBox(height: 50),
-            Text("Admin Panel",
+            const SizedBox(height: 50),
+            const Text("Admin Panel",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
                     fontWeight: FontWeight.bold)),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             SidebarItem(icon: Icons.dashboard, label: "Dashboard"),
             SidebarItem(icon: Icons.person, label: "Users"),
             SidebarItem(icon: Icons.shopping_cart, label: "Orders"),
@@ -145,17 +154,20 @@ class DashboardScreen extends StatelessWidget {
       Expanded(
         flex: 4,
         child: Padding(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(children: [
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text("Dashboard",
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-              CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.blueGrey,
-                  child: Icon(Icons.person, color: Colors.white)),
-            ]),
-            SizedBox(height: 20),
+            const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Dashboard",
+                      style:
+                          TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                  CircleAvatar(
+                      radius: 20,
+                      backgroundColor: Colors.blueGrey,
+                      child: Icon(Icons.person, color: Colors.white)),
+                ]),
+            const SizedBox(height: 20),
             Flexible(
 //                   flex: 2,
               child: GridView.count(
@@ -180,7 +192,7 @@ class DashboardScreen extends StatelessWidget {
                         icon: Icons.attach_money),
                   ]),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Flexible(
 //                     flex: 3,
               child: DatatableWidget(),
@@ -193,6 +205,8 @@ class DashboardScreen extends StatelessWidget {
 }
 
 class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
+
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
@@ -202,34 +216,37 @@ class LoginForm extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 10,
             child: Padding(
-                padding: EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 child: Column(mainAxisSize: MainAxisSize.min, children: [
-                  Text("Login",
+                  const Text("Login",
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 20),
-                  TextField(decoration: InputDecoration(labelText: "Email")),
-                  SizedBox(height: 10),
-                  TextField(
+                  const SizedBox(height: 20),
+                  const TextField(
+                      decoration: InputDecoration(labelText: "Email")),
+                  const SizedBox(height: 10),
+                  const TextField(
                       decoration: InputDecoration(labelText: "Password"),
                       obscureText: true),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   FractionallySizedBox(
                       widthFactor: 1.0,
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: Text('Sign In'),
+                        child: const Text('Sign In'),
                       )),
                 ]))));
   }
 }
 
 class GridViewExample extends StatelessWidget {
+  const GridViewExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
         child: Column(children: [
-      Text("Above Grid"),
+      const Text("Above Grid"),
       SizedBox(
           height: 300,
           child: GridView.count(
@@ -240,12 +257,14 @@ class GridViewExample extends StatelessWidget {
               children: List.generate(6, (index) {
                 return Container(color: Colors.green);
               }))),
-      Text("Below Grid"),
+      const Text("Below Grid"),
     ]));
   }
 }
 
 class LayoutContainerExample extends StatelessWidget {
+  const LayoutContainerExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -263,6 +282,8 @@ class LayoutContainerExample extends StatelessWidget {
 }
 
 class LayoutContainerExampleApp extends StatelessWidget {
+  const LayoutContainerExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -274,6 +295,8 @@ class LayoutContainerExampleApp extends StatelessWidget {
 }
 
 class GridLayoutExampleApp extends StatelessWidget {
+  const GridLayoutExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

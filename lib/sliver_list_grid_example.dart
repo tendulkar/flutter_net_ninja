@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 // }
 
 class SingleChildScrollViewExample extends StatelessWidget {
+  const SingleChildScrollViewExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -16,6 +18,8 @@ class SingleChildScrollViewExample extends StatelessWidget {
 }
 
 class ScrollWithLazyLoadExample extends StatelessWidget {
+  const ScrollWithLazyLoadExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(slivers: [
@@ -24,7 +28,7 @@ class ScrollWithLazyLoadExample extends StatelessWidget {
         floating: true,
         pinned: false,
         flexibleSpace: FlexibleSpaceBar(
-          title: Text("SliverAppBar"),
+          title: const Text("SliverAppBar"),
           background: Image.network(
               'https://picsum.photos/seed/seed_42/200/300',
               fit: BoxFit.cover),
@@ -41,19 +45,21 @@ class ScrollWithLazyLoadExample extends StatelessWidget {
 }
 
 class SliverListGridExample extends StatelessWidget {
+  const SliverListGridExample({super.key});
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
 //       physics: ClampingScrollPhysics(),
 //       physics: NeverScrollableScrollPhysics(),
 //       physics: AlwaysScrollableScrollPhysics(),
-        physics: PageScrollPhysics(),
+        physics: const PageScrollPhysics(),
         slivers: [
           SliverAppBar(
               expandedHeight: 200,
               pinned: true,
               flexibleSpace: FlexibleSpaceBar(
-                  title: Text("Mixed Slivers"),
+                  title: const Text("Mixed Slivers"),
                   background: Stack(
                     fit: StackFit.expand,
                     children: [
@@ -74,7 +80,7 @@ class SliverListGridExample extends StatelessWidget {
                     ],
                   ),
                   collapseMode: CollapseMode.parallax,
-                  stretchModes: [
+                  stretchModes: const [
                     StretchMode.zoomBackground,
                     StretchMode.fadeTitle,
                     StretchMode.blurBackground,
@@ -91,12 +97,12 @@ class SliverListGridExample extends StatelessWidget {
                   color: Colors.green,
                   child: Center(
                       child: Text("Grid Item ${index + 1}",
-                          style: TextStyle(color: Colors.white))),
+                          style: const TextStyle(color: Colors.white))),
                 );
               },
               childCount: 24,
             ),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
@@ -107,6 +113,8 @@ class SliverListGridExample extends StatelessWidget {
 }
 
 class SliverListGridExampleApp extends StatelessWidget {
+  const SliverListGridExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

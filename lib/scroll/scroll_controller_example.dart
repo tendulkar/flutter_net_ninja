@@ -6,19 +6,21 @@ import 'package:flutter/rendering.dart';
 // }
 
 class ScrollControllerExample extends StatefulWidget {
+  const ScrollControllerExample({super.key});
+
   @override
   _ScrollControllerExampleState createState() =>
       _ScrollControllerExampleState();
 }
 
 class _ScrollControllerExampleState extends State<ScrollControllerExample> {
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
   bool _isFabVisible = true;
 
   void _scrollToBottom() {
     _controller.animateTo(
       _controller.position.maxScrollExtent,
-      duration: Duration(seconds: 1),
+      duration: const Duration(seconds: 1),
       curve: Curves.easeOut,
     );
   }
@@ -49,7 +51,7 @@ class _ScrollControllerExampleState extends State<ScrollControllerExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Scroll example")),
+      appBar: AppBar(title: const Text("Scroll example")),
       body: ListView.builder(
         controller: _controller,
         itemCount: 50,
@@ -59,7 +61,7 @@ class _ScrollControllerExampleState extends State<ScrollControllerExample> {
       floatingActionButton: _isFabVisible
           ? FloatingActionButton(
               onPressed: _scrollToBottom,
-              child: Icon(Icons.arrow_downward),
+              child: const Icon(Icons.arrow_downward),
             )
           : null,
     );
@@ -67,12 +69,14 @@ class _ScrollControllerExampleState extends State<ScrollControllerExample> {
 }
 
 class InfiniteScrollExample extends StatefulWidget {
+  const InfiniteScrollExample({super.key});
+
   @override
   _InfiniteScrollState createState() => _InfiniteScrollState();
 }
 
 class _InfiniteScrollState extends State<InfiniteScrollExample> {
-  ScrollController _scrollController = ScrollController();
+  final ScrollController _scrollController = ScrollController();
   List<int> items = List.generate(50, (index) => index + 1);
 
   @override
@@ -91,7 +95,7 @@ class _InfiniteScrollState extends State<InfiniteScrollExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Infinite Scroll Example")),
+      appBar: AppBar(title: const Text("Infinite Scroll Example")),
       body: Center(
         child: ListView.builder(
           itemCount: items.length,
@@ -105,6 +109,8 @@ class _InfiniteScrollState extends State<InfiniteScrollExample> {
 }
 
 class ScrollControllerExampleApp extends StatelessWidget {
+  const ScrollControllerExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

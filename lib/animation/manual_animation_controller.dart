@@ -24,8 +24,12 @@ class _ManualAnimationControllerExampleAppState
       vsync: this,
     );
 
-    _animation =
-        Tween<double>(begin: 0.5, end: 1).animate(_animationController);
+    _animation = Tween<double>(begin: 0.5, end: 1).animate(
+      CurvedAnimation(
+        parent: _animationController,
+        curve: Curves.linear,
+      ),
+    );
 
     _animation.addListener(() {
       setState(() {

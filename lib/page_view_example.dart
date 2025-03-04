@@ -8,7 +8,7 @@ class TestContainer extends StatelessWidget {
   final Color color;
   final String text;
 
-  TestContainer({required this.text, required this.color});
+  const TestContainer({super.key, required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class TestContainer extends StatelessWidget {
         child: Center(
           child: Text(
             text,
-            style: TextStyle(fontSize: 24, color: Colors.white),
+            style: const TextStyle(fontSize: 24, color: Colors.white),
           ),
         ),
       ),
@@ -30,6 +30,9 @@ class TestContainer extends StatelessWidget {
 // we have controllers which are ChangeNotifiers
 // They track some value (text, page, tab, scroll, animation state) and can notify the listeners
 class PageControllerExample extends StatefulWidget {
+  const PageControllerExample({super.key});
+
+  @override
   _PageControllerState createState() => _PageControllerState();
 }
 
@@ -38,7 +41,7 @@ class _PageControllerState extends State<PageControllerExample> {
   // 1. put as controller in PageView
   // 2. use this controller to navigate, _pageController.animateToPage(...) method
   // 3. unlike TabController, this doesn't take care of buttons / trigger logic, call the method manually, based on event (button click, swipe...)
-  PageController _pageController = PageController();
+  final PageController _pageController = PageController();
   int _currentPage = 0;
 
   @override
@@ -53,7 +56,7 @@ class _PageControllerState extends State<PageControllerExample> {
     }
     _pageController.animateToPage(
       _currentPage,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
   }
@@ -64,7 +67,7 @@ class _PageControllerState extends State<PageControllerExample> {
     }
     _pageController.animateToPage(
       _currentPage,
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
   }
@@ -92,11 +95,11 @@ class _PageControllerState extends State<PageControllerExample> {
         children: [
           FloatingActionButton(
             onPressed: _gotoPreviousPage,
-            child: Icon(Icons.arrow_back),
+            child: const Icon(Icons.arrow_back),
           ),
           FloatingActionButton(
             onPressed: _gotoNextPage,
-            child: Icon(Icons.arrow_forward),
+            child: const Icon(Icons.arrow_forward),
           ),
         ],
       ),
@@ -105,6 +108,8 @@ class _PageControllerState extends State<PageControllerExample> {
 }
 
 class ColumnListView extends StatelessWidget {
+  const ColumnListView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -118,7 +123,7 @@ class ColumnListView extends StatelessWidget {
               color: Colors.blue,
               child: Text(
                 "Item ${index + 1}",
-                style: TextStyle(fontSize: 20, color: Colors.white),
+                style: const TextStyle(fontSize: 20, color: Colors.white),
               ),
             ),
           ),
@@ -129,6 +134,8 @@ class ColumnListView extends StatelessWidget {
 }
 
 class PageViewApp extends StatelessWidget {
+  const PageViewApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TabsWithVerticalSwipeApp2 extends StatelessWidget {
+  const TabsWithVerticalSwipeApp2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,6 +32,8 @@ class TabsWithVerticalSwipeApp2 extends StatelessWidget {
 }
 
 class TabsWithVerticalSwipeApp extends StatefulWidget {
+  const TabsWithVerticalSwipeApp({super.key});
+
   @override
   _TabBarViewWithVerticalSwipeState createState() =>
       _TabBarViewWithVerticalSwipeState();

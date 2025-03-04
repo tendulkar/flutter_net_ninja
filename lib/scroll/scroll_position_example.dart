@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 // }
 
 class ScrollPositionExampleApp extends StatelessWidget {
+  const ScrollPositionExampleApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,6 +17,8 @@ class ScrollPositionExampleApp extends StatelessWidget {
 }
 
 class ScrollPositionExample extends StatefulWidget {
+  const ScrollPositionExample({super.key});
+
   @override
   _ScrollPositionExampleState createState() => _ScrollPositionExampleState();
 }
@@ -25,8 +29,8 @@ class _ScrollPositionExampleState extends State<ScrollPositionExample> {
   double _minScrollExtent = -1.0;
   double _maxScrollExtent = -1.0;
   String _scrollDirection = "<NA>";
-  bool? _isAtEdge = null;
-  bool? _outOfRange = null;
+  bool? _isAtEdge;
+  bool? _outOfRange;
 
   @override
   void initState() {
@@ -54,14 +58,14 @@ class _ScrollPositionExampleState extends State<ScrollPositionExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Scroll Position Example")),
+      appBar: AppBar(title: const Text("Scroll Position Example")),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Text(
                 "Current Scroll Offset: $_scrollOffset, minScrollExtent: $_minScrollExtent, maxScrollExtent: $_maxScrollExtent, scroll direction: $_scrollDirection, at Edge: $_isAtEdge, out of range: $_outOfRange",
-                style: TextStyle(fontSize: 18)),
+                style: const TextStyle(fontSize: 18)),
           ),
           Expanded(
             child: ListView.builder(
