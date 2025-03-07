@@ -25,36 +25,65 @@ class SampleCounter extends StatefulWidget {
 
 class _SampleCounterState extends State<SampleCounter> {
   int _counter = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Sample Counter')),
       body: Center(
-        key: ValueKey<String>("$_counter"),
-        child: Column(
-          key: ValueKey<String>("$_counter"),
-          mainAxisAlignment: _counter % 2 == 0
-              ? MainAxisAlignment.start
-              : MainAxisAlignment.center,
-          children: [
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  _counter++;
-                });
-              },
-              child: const Text('Increment'),
-            ),
-          ],
+          key: ValueKey<int>(_counter),
+          child: Column(
+            key: ValueKey<int>(_counter),
+            mainAxisAlignment: _counter % 2 == 0
+                ? MainAxisAlignment.start
+                : MainAxisAlignment.center,
+            children: [
+              const Text('You have pushed the button this many times:'),
+              Text('$_counter', style: const TextStyle(fontSize: 30)),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    _counter++;
+                  });
+                },
+                child: const Text('Increment'),
+              ),
+            ],
+          )),
+    );
+  }
+}
+
+class FastCounterWidget extends StatefulWidget {
+  const FastCounterWidget({super.key});
+
+  @override
+  State<FastCounterWidget> createState() => _FastCounterWidgetState();
+}
+
+class _FastCounterWidgetState extends State<FastCounterWidget> {
+  int _counter = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: _counter % 2 == 0
+          ? MainAxisAlignment.start
+          : MainAxisAlignment.center,
+      children: [
+        const Text('You have pushed the button this many times:'),
+        Text(
+          '$_counter',
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
-      ),
+        ElevatedButton(
+          onPressed: () {
+            setState(() {
+              _counter++;
+            });
+          },
+          child: const Text('Increment'),
+        ),
+      ],
     );
   }
 }

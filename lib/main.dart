@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_net_ninja/counter_state.dart';
+import 'package:flutter_net_ninja/inherited_widgets/update_inhertied_widgets.dart';
+import 'package:flutter_net_ninja/provider/change_notifier_provider_example.dart';
 import 'animation/implicit_examples/index.dart';
 
 void main() async {
+  debugPrintRebuildDirtyWidgets = true;
   WidgetsFlutterBinding.ensureInitialized();
   // await Future.delayed(const Duration(seconds: 10));
   // Run the simple opacity tween example
-  runApp(const SampleCounterApp());
+  runApp(const ChangeNotifierExampleApp());
 }
 
 class MyApp extends StatelessWidget {
